@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+    
+    input[type=text], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+    
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    </style>
+</head>
+<body>
+<form [formGroup]="fa"  (ngSubmit)="onSubmit()">
+
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+  
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+    <label for="Phoneno">Phone number: </label>
+    <input id="Phoneno" type="text" formControlName="Phoneno">
+    <label for="Address">Address: </label>
+    <input id="Address" type="text" formControlName="Address">
+    <button type="submit">Submit</button>
+   
+<p>Form Value: {{ fa.value | json }}</p>
+
+<p>Form Status: {{ fa.status }}</p>
+</form>
+<button (click)="updateProfile()">updateProfile</button>
+<button (click)="removeItem()">delete Profile</button>
+
+
+</body>
+</html>
